@@ -26,6 +26,7 @@
 
 html {
     box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
 body {
@@ -42,7 +43,7 @@ body {
 
 h1 {
     display: block;
-    margin: 0px auto 20px;
+    margin: 40px auto 20px;
     width: 50%;
     text-align: center;
     color: #001219;
@@ -75,7 +76,6 @@ h2 {
     contain: layout;
     cursor: pointer;
     transition: .3s opacity, .6s max-height;
-    hyphens: auto;
     opacity: 1;
     transform: translate(0, 0);
     z-index: 2;
@@ -91,7 +91,7 @@ ul {
 ul li {
     position: relative;
     overflow: hidden;
-    padding: 30px 0;
+    min-height: 75px;
     margin: 0;
     background-color: #005f73;
     border-top: #e9d8a6 3px solid;
@@ -108,11 +108,17 @@ ul li i {
 ul li input[type=checkbox]:checked~i::before {
     content: url(./assets/icons/add_white_24dp.svg);
     position: absolute;
+    transform: scale(2);
+    padding-right: 50px;
+    visibility: hidden;
 }
 
 ul li input[type=checkbox]:not(:checked)~i::after {
     content: url(./assets/icons/close_white_24dp.svg);
     position: absolute;
+    transform: scale(2);
+    padding-right: 50px;
+    visibility: hidden;
 }
 
 ul li input[type=checkbox] {
@@ -120,7 +126,7 @@ ul li input[type=checkbox] {
     cursor: pointer;
     width: 100%;
     height: 100%;
-    z-index: 1;
+    z-index: 3;
     opacity: 0;
     touch-action: manipulation;
 }
@@ -141,4 +147,54 @@ ul li input[type=checkbox]:checked~img {
     font-family: Teko;
     font-size: 16px;
     padding-left: 24px;
+}
+
+@media screen and (max-width:820px) {
+    h1 {
+        font-size: 40px;
+    }
+
+    h2 {
+        font-size: 32px;
+    }
+
+    #copyright {
+        font-size: 14px;
+    }
+
+    .img {
+        width: 75%;
+    }
+}
+
+@media screen and (max-width:320px) {
+    h1 {
+        font-size: 24px;
+    }
+
+    h2 {
+        font-size: 16px;
+    }
+
+    #copyright {
+        font-size: 10px;
+    }
+
+    .img {
+        width: 80%;
+    }
+}
+
+@media (hover: hover) {
+    .accordion-container:hover ul li input[type=checkbox]:checked~i::before {
+        visibility: visible;
+    }
+
+    .accordion-container:hover ul li input[type=checkbox]:not(:checked)~i::after {
+        visibility: visible;
+    }
+
+    .accordion-container:hover ul li input[type=checkbox]:checked~h2 {
+        color: #e9d8a6;
+    }
 }
