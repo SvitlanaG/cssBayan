@@ -30,12 +30,12 @@ html {
 
 body {
     display: block;
+    max-width: 1200px;
+    margin: 0 auto;
     background: #e9d8a6;
 }
 
 .accordion-container {
-    max-width: 1200px;
-    margin: 0 auto;
     padding: 0 20px;
     text-align: left;
 }
@@ -105,9 +105,13 @@ ul li i {
     right: 16px;
 }
 
-ul li i::before,
-ul li i::after {
+ul li input[type=checkbox]:checked~i::before {
     content: url(./assets/icons/add_white_24dp.svg);
+    position: absolute;
+}
+
+ul li input[type=checkbox]:not(:checked)~i::after {
+    content: url(./assets/icons/close_white_24dp.svg);
     position: absolute;
 }
 
@@ -130,4 +134,11 @@ ul li input[type=checkbox]:checked~img {
     max-height: 0;
     transition: .3s;
     opacity: 0;
+}
+
+#copyright {
+    color: #001219;
+    font-family: Teko;
+    font-size: 16px;
+    padding-left: 24px;
 }
